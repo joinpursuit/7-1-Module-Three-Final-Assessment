@@ -1,3 +1,38 @@
 .app {
   text-align: center;
 }
+
+/* ul:empty + .empty-state {
+  display: block;
+} */
+
+ul {
+list-style: armenian;
+/* width: 250px; */
+text-align: left;
+}
+
+nav {
+  /* font-family: 'Reggae One', cursive; */
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(123, 235, 220);
+  font-size: larger; 
+  width: 90%;
+  margin: auto;
+  /* word-spacing: 1em; */
+
+}
+
+a {
+color: rgb(97, 19, 143);
+margin: 10px;
+padding: 5px;
+}
+
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  background-color: #f2e6ff;
+}
+
