@@ -26,7 +26,7 @@ class Movies extends Component {
     }
 
     collectMovies = async () => {
-        const { data } = await axios.get("https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe/");
+        const { data } = await axios.get("https://ghibliapi.herokuapp.com/films/");
 
         this.setState({movies: data})
     }
