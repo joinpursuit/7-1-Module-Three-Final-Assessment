@@ -36,8 +36,8 @@ export default class Movies extends Component {
     const { movies } = this.state;
 
     if (value) {
-      let movie = movies.filter((movie) => movie.id === value)
-      console.log(movies)
+      let movie = movies.filter((movie) => movie.title === value)
+      console.log(value)
       this.setState({
         title: movie[0].title,
         release: movie[0].release_date,

@@ -22,7 +22,7 @@ export default class People extends Component {
         const { personInput } = this.state
         
         try {
-            const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/${personInput}`)
+            const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/`)
 
             this.setState({
                 personOutput : data,
