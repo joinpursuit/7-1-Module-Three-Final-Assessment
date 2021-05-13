@@ -1,10 +1,9 @@
 import "./App.css";
-import Navbar from "./Components/Navbar"
-import Movies from "./Components/Movies"
-import People from "./Components/People"
-import Locations from "./Components/Locations"
-import { Switch, Route } from "react-router-dom"
-
+import Navbar from "./Components/Navbar";
+import Movies from "./Components/Movies";
+import People from "./Components/People";
+import Locations from "./Components/Locations";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
       </nav>
       <main>
         <Switch>
-          <Route exact path ="/">
+          <Route exact path="/">
             <h1>Welcome to GhibliApp</h1>
           </Route>
           <Route path="/movies" component={Movies}></Route>

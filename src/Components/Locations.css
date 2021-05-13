@@ -1,0 +1,14 @@
+.locations {
+  height: 100vh;
+  background: rgb(179, 146, 193);
+}
+
+ul {
+  padding: 15px;
+  list-style: none;
+  font-weight: 700;
+}
+
+li {
+  padding: 2px;
+}

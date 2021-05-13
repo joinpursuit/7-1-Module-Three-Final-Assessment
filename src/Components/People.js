@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./People.css";
 
 export class People extends Component {
   constructor() {
@@ -27,13 +28,13 @@ export class People extends Component {
     try {
       const { data } = await axios.get(
         "https://ghibliapi.herokuapp.com/people"
-      ); 
+      );
       this.setState({
         people: data,
       });
     } catch {
       this.setState({
-          error: true
+        error: true,
       });
     }
   };
@@ -41,7 +42,7 @@ export class People extends Component {
   findPerson = async (e) => {
     e.preventDefault();
     const { people, input } = this.state;
-    const person = people.filter(person => person.name === input);
+    const person = people.filter((person) => person.name === input);
 
     if (person[0]) {
       this.setState({
@@ -65,7 +66,7 @@ export class People extends Component {
   render() {
     const { error, selectedAge, selectedGender, selectedname } = this.state;
     return (
-      <div>
+      <div className="people">
         <h1>Search for a Person</h1>
         <form onSubmit={this.findPerson}>
           <input
@@ -84,7 +85,6 @@ export class People extends Component {
             <h2>Gender: {selectedGender}</h2>
           </>
         ) : null}
-
       </div>
     );
   }
