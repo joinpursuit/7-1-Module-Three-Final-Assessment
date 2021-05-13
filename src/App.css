@@ -7,7 +7,7 @@ body {
 }
 
 .app h1 {
-  font-family: Helvetica, sans-serif;
+  font-family: Ghibli, Helvetica, sans-serif;
   color: whitesmoke;
   font-weight: 100;
 }
@@ -16,6 +16,7 @@ body {
   width: 30em;
 }
 
+
 .nav-bar {
   background-color: rgb(42, 72, 114);
 }
@@ -23,7 +24,7 @@ body {
 .nav-bar a {
   display: inline-block;
   align-items: center;
-  font-family: Impact, fantasy;
+  font-family: Ghibli, Impact, fantasy;
   text-decoration: none;
   margin: 40px;
   color: snow;
