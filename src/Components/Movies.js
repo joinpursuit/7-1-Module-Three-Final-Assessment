@@ -56,7 +56,7 @@ export default class Movies extends Component {
         </select>
 
         <div className="moviecard">
-          {currentMovie.title ? (
+          {/* {currentMovie.title ? ( */}
             <div>
               <h3>Title: {currentMovie.title}</h3>
               <h3>
@@ -68,7 +68,7 @@ export default class Movies extends Component {
                 {currentMovie.title ? currentMovie.description : null}{" "}
               </h3>
             </div>
-          ) : null}
+         {/* ) : null} */}
         </div>
       </div>
     );
