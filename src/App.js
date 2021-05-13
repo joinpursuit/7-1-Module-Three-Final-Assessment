@@ -1,10 +1,21 @@
 import "./App.css";
+import NavBar from './Components/NavBar'
+import Movies from "./Components/Movies"
+import People from "./Components/People"
+import Locations from "./Components/Locations"
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="app">
+      <NavBar className="navbar"/>
       <main>
-        <h1>Hello, world!</h1>
+        <Switch>
+        <Route exact path ="/"><h1>Welcome to GhibliApp!</h1></Route>
+        <Route path ='/movies' component={Movies} className="movies"></Route>
+        <Route path= '/people' component={People}></Route>
+        <Route path = '/locations' component={Locations}></Route>
+        </Switch>
       </main>
     </div>
   );
