@@ -17,7 +17,7 @@ export default class Movies extends Component {
             search: e.target.value
         })
        
-        const {data} = await axios.get(`https://ghibliapi.herokuapp.com/films${e.target.value}`)
+        const {data} = await axios.get(`https://ghibliapi.herokuapp.com/films/${e.target.value}`)
         this.setState({
              movies: data
         })
@@ -48,11 +48,13 @@ export default class Movies extends Component {
                     <option></option>
                     {list}   
                 </select> 
-                <div>
-                    <p>Name: {movies.title}</p>
+                {movies.title ? ( <div>
+                    
+                    <h1>Name: {movies.title}</h1>
                     <p>Date: {movies.release_date}</p>
                     <p>Description: {movies.description}</p>
-                </div>
+                </div>):null}
+               
             </div>
         )
     }
