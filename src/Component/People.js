@@ -28,8 +28,14 @@ class People extends React.Component {
             })
         const res = await axios.get(`https://ghibliapi.herokuapp.com/people/${this.state.personId}`)
         console.log(res)
-          this.setState({ personName:res.data.name, personAge:res.data.age, personGender:res.data.gender, search:'', isError: false})
+        if(res.data.id){
+            console.log('I am an object')
+          this.setState({ personName:res.data.name, personAge:res.data.age, personGender:res.data.gender, search:'', isError: false})}
+          else{ 
+               console.log("i caught an error")
+              this.setState({isError:true})}
         } catch (e) {
+            console.log("i caught an error")
           this.setState({pokemonName:'', isError: true, search: ''})
         }
       }
@@ -42,6 +48,7 @@ class People extends React.Component {
 
     handleSubmit=(e)=>{
         e.preventDefault()
+        this.setState({personName:''})
         this.personSearch()
     }
 
