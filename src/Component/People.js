@@ -13,34 +13,29 @@ class People extends React.Component {
             personId: '',
             isError: false,
             dispose: '',
-          
+
         }
     }
 
     personSearch = async () => {
-        const { people } = this.state
         try {
             const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/`)
             this.setState({ people: data })
-            const newArray=data.filter((p)=>{
-                if(p.name === this.state.search){return p}
+            const newArray = data.filter((p) => {
+                if (p.name === this.state.search) { return p }
             })
-            console.log(newArray)
-            if(newArray.length === 0){this.setState({personId:0})}else{
-            newArray.map((p)=>{this.setState({personId:p.id})})}
+            if (newArray.length === 0) { this.setState({ personId: 0 }) } else {
+                newArray.map((p) => { this.setState({ personId: p.id }) })
+            }
 
             const res = await axios.get(`https://ghibliapi.herokuapp.com/people/${this.state.personId}`)
-            console.log(res)
             if (res.data.id === this.state.personId) {
-                console.log('I am an object')
                 this.setState({ personName: res.data.name, personAge: res.data.age, personGender: res.data.gender, search: '', isError: false })
             }
             else {
-                console.log("i caught an error")
                 this.setState({ isError: true, personName: "" })
             }
         } catch (e) {
-            console.log("i caught an error")
             this.setState({ pokemonName: '', isError: true, search: '' })
         }
     }
@@ -53,16 +48,14 @@ class People extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.setState({ personName: '' })
+        // this.setState({ personName: '' })
         this.personSearch()
     }
 
 
 
     render() {
-        const { search, people, personName, personAge, personGender, isError } = this.state
-        console.log(personName)
-
+        const { search, personName, personAge, personGender, isError } = this.state
         return (
             <div>
                 <h2>Search for a Person</h2>
