@@ -7,9 +7,8 @@ export class Movies extends Component {
 
         this.state ={
             films: [],
-            title: "",
-            release: "",
-            description: "",
+            selectedFilm: {},
+            value: ""
         }
     }
 
@@ -26,23 +25,28 @@ export class Movies extends Component {
     }
 
     handleChange = async (event) => {
-        try {
-            const {data} = await axios.get(`https://ghibliapi.herokuapp.com/films/${event.target.value}`)
-            // console.log(data.name)
+        // console.log(event.target.value)
+        this.setState({
+            value: event.target.value,
+        })
 
-            this.setState({
-                title: data.title,
-            })
-        } catch (error) {
-            
-        }
+        const {data} = await axios.get(`https://ghibliapi.herokuapp.com/films/${event.target.value}`)
+        // console.log(data)
+
+        this.setState({
+            selectedFilm: data,
+        })
+       
     }
 
     render() {
-        const {films} = this.state;
+        const {films, selectedFilm, value} = this.state;
         // console.log(films)
-        const options = films.map(film => <option value={film.title} key={film.title}>{film.title}</option>)
-        console.log(options)
+
+        const options = films.map((film,i) => 
+            <option value={film.id} key={i}>{film.title}</option>)
+        // console.log(options)
+
         return (
             <div>
                 <h1>Select a Movie</h1>
@@ -51,7 +55,11 @@ export class Movies extends Component {
                     {options}
                 </select>
 
-                <h2>Title: {} </h2>
+                <div>
+                    {value ? <h3>Title: {selectedFilm.title}</h3> : null}
+                    {value ? <h3>Release Date: {selectedFilm.release_date}</h3> : null}
+                    {value ? <h3>Description: {selectedFilm.description}</h3>: null}
+                </div>
             </div>
         )
     }

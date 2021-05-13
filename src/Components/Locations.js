@@ -13,8 +13,10 @@ export class Locations extends Component {
 
     handleClick = async () => {
         // console.log("you click the button")
+        
         const {data} = await axios.get(`https://ghibliapi.herokuapp.com/locations`)
         // console.log(data)
+
         this.setState({
             locations: data,
             show: !this.state.show,
