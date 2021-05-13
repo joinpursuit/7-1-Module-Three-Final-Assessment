@@ -51,7 +51,7 @@ class Movies extends Component {
                     <option></option>
                     {options}
                 </select>
-                <h3> {currentMovie.release_date}</h3>
+                <h2> {currentMovie.release_date}</h2>
                 <h3>{currentMovie.title ? currentMovie.title : null}</h3>
                 <p>{currentMovie.description}</p>
             </div>
