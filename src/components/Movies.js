@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-export class Movies extends Component {
+class Movies extends Component {
     constructor() {
         super();
         this.state = {
