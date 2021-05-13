@@ -39,7 +39,7 @@ class Movies extends Component {
         const { movies, selectedValue, currentMovie } = this.state;
         const options = movies.map((movie, i) => {
             return (
-                <option key={i} value={movie.title}>
+                <option key={i} value={movie.id}>
                 {movie.title}
                 </option>
             )
@@ -50,9 +50,10 @@ class Movies extends Component {
                 <select onChange={this.handleChange} value={selectedValue}>
                     <option></option>
                     {options}
-                    <p></p>
                 </select>
+                <h3> {currentMovie.release_date}</h3>
                 <h3>{currentMovie.title ? currentMovie.title : null}</h3>
+                <p>{currentMovie.description}</p>
             </div>
         )
     }
