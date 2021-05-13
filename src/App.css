@@ -15,9 +15,23 @@ body {
 h1 {
   color: rgb(38, 38, 156);
   font-weight: 400;
-  font-size: 70px;
+  font-size: 60px;
   font-family: cursive;
   text-shadow: 2px 2px rgb(61, 59, 59);
+}
+
+h2 {
+  color: rgb(38, 38, 156);
+  font-weight: 400;
+  font-size: 40px;
+  font-family: cursive;
+}
+
+h3 {
+  color: rgb(38, 38, 156);
+  font-weight: 400;
+  font-size: 30px;
+  font-family: cursive;
 }
 
 .list {

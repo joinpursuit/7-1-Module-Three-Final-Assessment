@@ -59,8 +59,8 @@ export default class Movies extends Component {
           {options}
         </select>
         <div>
-          <h3>Title: {currentMovie.title}</h3>
-          <h3>Release Date: {currentMovie.release_date}</h3>
+          <h1>Title: {currentMovie.title}</h1>
+          <h2>Release Date: {currentMovie.release_date}</h2>
           <h3>Description: {currentMovie.description}</h3>
         </div>
       </div>
