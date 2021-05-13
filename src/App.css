@@ -1,3 +1,22 @@
 .app {
   text-align: center;
+  font-family: cursive;
+}
+
+img {
+  height: 50px;
+  width:50px
+}
+
+nav {
+ 
+  display: flex;
+  justify-content: space-around;
+  background-color: red;
+
+}
+
+div{
+  background-color: aquamarine;
+  height: 800px
 }
