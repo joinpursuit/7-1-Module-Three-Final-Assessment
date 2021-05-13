@@ -21,11 +21,11 @@ export default class Movies extends Component {
     this.setState({
       selectedValue: e.target.value,
     });
-    console.log(e.target.value);
+
     const { data } = await axios.get(
       `https://ghibliapi.herokuapp.com/films/${e.target.value}`
     );
-    console.log(data);
+
     this.setState({
       currentMovie: data,
     });
@@ -43,7 +43,7 @@ export default class Movies extends Component {
       );
     });
     return (
-      <div>
+      <div className="movies">
         <h1>Select a Movie</h1>
         <select
           onChange={this.handleChange}
@@ -56,14 +56,19 @@ export default class Movies extends Component {
         </select>
 
         <div className="moviecard">
-          <h3>Title: {currentMovie.title}</h3>
-          <h3>
-            Release Date:{" "}
-            {currentMovie.title ? currentMovie.release_date : null}{" "}
-          </h3>
-          <h3>
-            Description: {currentMovie.title ? currentMovie.description : null}{" "}
-          </h3>
+          {currentMovie.title ? (
+            <div>
+              <h3>Title: {currentMovie.title}</h3>
+              <h3>
+                Release Date:{" "}
+                {currentMovie.title ? currentMovie.release_date : null}{" "}
+              </h3>
+              <h3>
+                Description:{" "}
+                {currentMovie.title ? currentMovie.description : null}{" "}
+              </h3>
+            </div>
+          ) : null}
         </div>
       </div>
     );

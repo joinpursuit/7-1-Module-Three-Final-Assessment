@@ -14,6 +14,12 @@ export default class Locations extends Component {
     const { data } = await axios.get(
       "https://ghibliapi.herokuapp.com/locations"
     );
+
+    console.log(data);
+    const todo = "TODO";
+    const newData = (data.find((loc) => loc.climate === todo).climate =
+      "Unknown");
+    console.log(newData);
     this.setState({
       locations: data,
     });
@@ -31,9 +37,7 @@ export default class Locations extends Component {
     const { locations, showList } = this.state;
     const listItems = locations.map((loc, i) => (
       <li key={i}>
-        Name: {loc.name}
-        Climate:{loc.climate}
-        Terrain: {loc.terrain}
+        Name: {loc.name} <br /> Climate:{loc.climate} <br /> Terrain: {loc.terrain}
       </li>
     ));
     return (
