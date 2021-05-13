@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import "./people.css"
 
 export default class People extends Component {
     constructor(){
@@ -53,7 +54,7 @@ export default class People extends Component {
     render() {
         const {currentperson,namepers, searchperson, isError} = this.state
         return (
-            <div>
+            <div className='body'>
                 <h1>Search for a Person</h1>
                 <form onSubmit={this.handleinput}>
                    <input 

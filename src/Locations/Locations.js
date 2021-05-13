@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import "./locations.css"
 export default class Locations extends Component {
     constructor(){
         super()
@@ -32,7 +32,7 @@ export default class Locations extends Component {
         const places = locations.map((loc, i )=> 
         <li key={i}> Name: {loc.name} Climate: {loc.climate}  Terrain: {loc.terrain}</li>)
         return (
-            <div>
+            <div className="locations">
                 <h1>List of Locations</h1>
                 <button onClick={this.handlclick}>{showLocal ? 'Hide' : 'Show'} Locations</button>
                 

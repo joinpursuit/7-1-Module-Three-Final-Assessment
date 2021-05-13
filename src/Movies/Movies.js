@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import "./movies.css"
 export default class Movies extends Component {
     constructor(){
         super()
@@ -42,18 +42,18 @@ export default class Movies extends Component {
             </option>
         )} )
         return (
-            <div>
+            <div  className= "bodytry">
                 <h1>Select a Movie</h1>
-                <select onChange={this.handleSubmit} value={search}>
-                    <option></option>
+                <select className="option" onChange={this.handleSubmit} value={search}>
+                    <option ></option>
                     {list}   
                 </select> 
-                {movies.title ? ( <div>
+                  <div>
                     
-                    <h1>Name: {movies.title}</h1>
+                    <h1>Title: {movies.title}</h1>
                     <p>Date: {movies.release_date}</p>
-                    <p>Description: {movies.description}</p>
-                </div>):null}
+                    <p className="sec">Description: {movies.description}</p>
+                </div>
                
             </div>
         )

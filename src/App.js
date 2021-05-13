@@ -7,7 +7,7 @@ import Locations from "./Locations"
 function App() {
   return (
     <div className="app">
-      <main>
+      <main className='main'>
         <header className='header'>
           <Link to="/"> <img src="https://www.nicepng.com/png/detail/875-8758012_dog-movie-sunglass-popcorn-movietheater-movietime-red-chien.png" className="dog" alt="My Dog"/></Link>
           <Link to="/movies">Movies</Link>
