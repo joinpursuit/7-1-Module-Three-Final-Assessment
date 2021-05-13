@@ -11,13 +11,13 @@ class Movies extends Component {
     };
   }
 
-  handleChange = async (e) => {
+  handleChange = async (event) => {
     this.setState({
-      selectedValue: e.target.value,
+      selectedValue: event.target.value,
     });
 
     const { data } = await axios.get(
-      `https://ghibliapi.herokuapp.com/films/${e.target.value}`
+      `https://ghibliapi.herokuapp.com/films/${event.target.value}`
     );
 
     
@@ -29,7 +29,6 @@ class Movies extends Component {
 
   getMovie = async () => {
     const { data } = await axios.get("https://ghibliapi.herokuapp.com/films/");
-    
     this.setState({
       movies: data,
     });
@@ -44,7 +43,7 @@ class Movies extends Component {
     const options = movies.map((movie, i) => {
       return (
         <option key={i} value={movie.id}>
-          {movies.title}
+          {movie.title}
         </option>
       );
     });
@@ -59,9 +58,9 @@ class Movies extends Component {
           <option></option>
           {options}
         </select>
-        <h2>Title : {currentMovie.title ? currentMovie.title : null}</h2>
-        <h2>Release Date: {currentMovie.release_date}</h2>
-        <h2> Description: {currentMovie.description}</h2>
+        <h3>{currentMovie.title}</h3>
+        <h3>{currentMovie.release_date}</h3>
+        <h3>{currentMovie.description}</h3>
       </div>
     );
   }
