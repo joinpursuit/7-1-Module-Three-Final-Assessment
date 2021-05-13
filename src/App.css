@@ -1,3 +1,41 @@
 .app {
   text-align: center;
 }
+.Navbar{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+  font-size: 30px;
+  background-color: black;
+  height: 150px;
+}
+
+.Link {
+  color: white;
+  text-decoration: none;
+}
+.Link:hover {
+  color: lightskyblue;
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+img:hover {
+  transform: scale(2);
+}
+
+html {
+  background-color: lightskyblue;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+  justify-content: center;
+  margin: 10px;
+  list-style-type: upper-roman;
+}
+ul li {
+  margin: 10px;
+  padding: 25px;
+}
