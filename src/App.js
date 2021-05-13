@@ -10,20 +10,20 @@ import { Link } from "react-router-dom";
 function App() {
   return (
     <div className="app">
-      <div className="Link"> 
-        <Link to="/">
+      <nav className="Navbar"> 
+        <Link to="/" className="Link">
           <img 
           src="https://data.whicdn.com/images/118484124/original.gif" 
-          alt="Picture " 
+          alt="TOTORO!!!" 
           style={{height:"50px", width: "50px"}}/>
         </Link> {" "}
-        <Link to="/movies">Movies</Link> {" "}
-        <Link to="/people">People</Link> {" "}
-        <Link to="/locations">Locations</Link>
-      </div>
+        <Link to="/movies" className="Link">Movies</Link> {" "}
+        <Link to="/people" className="Link">People</Link> {" "}
+        <Link to="/locations" className="Link">Locations</Link>
+      </nav>
       <main>
         <Switch>
-          <Route eaxct path="/" component={Home}/>
+          <Route exact path="/" component={Home}/>
           <Route path="/movies" component={Movies}/>
           <Route path="/people" component={People}/>
           <Route path="/Locations" component={Locations}/>

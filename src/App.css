@@ -1,9 +1,33 @@
 .app {
   text-align: center;
 }
-.Link {
+.Navbar{
   display: grid;
   grid-template-columns: repeat(4,1fr);
   align-items: center;
   font-size: 30px;
+  background-color: black;
+  height: 150px;
+}
+
+.Link {
+  color: white;
+  text-decoration: none;
+}
+.Link:hover {
+  color: lightskyblue;
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+img:hover {
+  transform: scale(2);
+}
+
+html {
+  background-color: lightskyblue;
+}
+
+ul {
+  list-style-type: upper-roman;
 }
