@@ -10,7 +10,10 @@ const NavBar = () => {
                     alt="movie-img"
                     style={{ height: "50px", width: "50px" }}
                     />
-                </Link>
+                </Link>{" "}
+                <Link to="/movies">Movies</Link>{" "}
+                <Link to="/people">People</Link>{" "}
+                <Link to="/movies">Locations</Link>
             </nav>
         </div>
     )
