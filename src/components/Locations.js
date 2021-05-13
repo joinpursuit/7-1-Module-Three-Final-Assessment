@@ -34,7 +34,7 @@ class Locations extends Component {
 
 
         return (
-            <div>
+            <div className="locations">
                 <h1>List of Locations</h1>
                 <button onClick={this.handleClick}>
                     {displayList ? "Hide Locations" : "Show Locations"}

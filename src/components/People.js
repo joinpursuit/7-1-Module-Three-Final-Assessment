@@ -59,7 +59,7 @@ class People extends Component {
     render() {
         const { searchPeople, currentPerson, personName, isError} = this.state;
         return (
-            <div>
+            <div className="people">
                 <h1>Search for a Person</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input

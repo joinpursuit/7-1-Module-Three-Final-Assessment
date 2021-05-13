@@ -6,8 +6,7 @@ const NavBar = () => {
         <div className="nav-bar">
             <nav>
                 <Link to="/">
-                    <img src="https://toppng.com/uploads/preview/film-cinema-illustration-popcorn-and-projector-movie-11562911119ni7qtdkdp4.png"
-                    alt="movie-img"
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Studio_Ghibli_portal_logo.png"
                     style={{ height: "50px", width: "50px" }}
                     />
                 </Link>{" "}

@@ -1,12 +1,38 @@
+body {
+  background: black;
+}
+
 .app {
   text-align: center;
 }
 
-.nav-bar {
-  /* background-color: black; */
+.app h1 {
+  font-family: Helvetica, sans-serif;
+  color: whitesmoke;
+  font-weight: 100;
+}
 
+.nav-bar {
+  background-color: rgb(63, 51, 51);
 }
 
 .nav-bar a {
-  /* color: snow; */
+  display: inline-block;
+  align-items: center;
+  font-family: Impact, fantasy;
+  text-decoration: none;
+  margin: 40px;
+  color: snow;
+}
+
+.movies {
+  color: whitesmoke;
+}
+
+.locations {
+  color: whitesmoke;
+}
+
+.people {
+  color: whitesmoke;
 }
