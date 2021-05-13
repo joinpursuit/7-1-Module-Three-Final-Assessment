@@ -24,26 +24,24 @@ handleSubmit= async (e) => {
 
     try {
         const { data } = await axios.get(
-          `https://ghibliapi.herokuapp.com/people/${searchPerson}`
-          
+          `https://ghibliapi.herokuapp.com/people`
         );
-        console.log(data)
-
+            const person = data.find((ele) => ele.name === searchPerson)
         this.setState({
-          currPerson: data,
+          currPerson: person,
+          currName: person.name,
           searchPerson: "",
           isError: false,
         });
       } catch (e) {
         this.setState({
           currPerson: {},
+          currName:"",
           searchPerson: "",
           isError: true,
         });
-
       }
     };
-
 
     render() {
         const { searchPerson, currPerson, currName, isError } = this.state
@@ -59,7 +57,7 @@ handleSubmit= async (e) => {
                      />
                     <button>Submit</button>
                 </form>
-                {currPerson.name ? (
+                {currName ? (
             <div>
                 <p>Name: {currPerson.name}</p>
                 <p>Age: {currPerson.age}</p>            
@@ -68,7 +66,6 @@ handleSubmit= async (e) => {
         ) : null}
 
         {isError ? <h2>Not Found!</h2> : null}
-
             </div>
         )
     }

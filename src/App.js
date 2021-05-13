@@ -16,7 +16,6 @@ function App() {
         <Route path= '/people' component={People}></Route>
         <Route path = '/locations' component={Locations}></Route>
         </Switch>
-        
       </main>
     </div>
   );

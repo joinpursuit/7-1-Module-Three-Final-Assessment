@@ -31,7 +31,6 @@ componentDidMount() {
     this.getMovies()
 }
 
-
     render() {
         const { movies, currmovie, selectedValue } = this.state
         const options = movies.map(( movie, i ) => {
@@ -56,7 +55,6 @@ componentDidMount() {
                 <h2>Title: {currmovie.title ? currmovie.title: null}</h2>
                 <h2>Release Date: {currmovie.release_date ? currmovie.release_date:null}</h2>
                 <h2>Description: {currmovie.description}</h2>
-                
             </div>
         )
     }
