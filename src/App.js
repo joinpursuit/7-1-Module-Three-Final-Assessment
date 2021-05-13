@@ -21,6 +21,7 @@ class App extends Component {
 
           <Route path='/movies' component={Movies}></Route>
           <Route path='/people' component={People}></Route>
+          <Route path='/locations' component={Locations}></Route>
         </Switch>
       </div>
     );
