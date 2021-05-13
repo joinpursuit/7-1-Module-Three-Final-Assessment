@@ -9,7 +9,7 @@ export default class Movies extends Component {
     }
     selectChange = (e) => {
         const { value } = e.target;
-        if (!value) return this.setState({ movieList: [], selected: "" });
+        if (!value) return this.setState({ selected: "" });
         this.setState({ selected: value });
     }
     async componentDidMount() {
