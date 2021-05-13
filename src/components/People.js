@@ -1,17 +1,83 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import axios from "axios";
 
 export default class People extends Component {
-    
-    render() {
-        return (
-            <div>
-                <h1>Search for a Person</h1>
-                <input type="text" />
-                <button>Submit</button>
-                <div>Name:</div>
-                <div>Age:</div>
-                <div>Gender:</div>
-            </div>
-        )
+  constructor() {
+    super();
+      this.state = {
+        data: [],
+      input: "",
+      name: "",
+      age: "",
+      gender: "",
+      errPing: "",
+    };
+  }
+  handleInputChange = (e) => {
+    // e.preventDefault();
+    this.setState({
+      input: e.target.value,
+    });
+    console.log(this.state.input)
+  };
+//     async componentDidMount() {
+//         try {
+//             const { data } = await axios.get(
+//                 `https://ghibliapi.herokuapp.com/people`
+//             );
+//             const {name, age, gender} = data.map(person => {
+//                 console.log(person.name)
+//             })
+//         }
+//         catch(e) {
+//             console.error(e)
+//         }
+//   }
+  handleClick = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://ghibliapi.herokuapp.com/people`
+      );
+        data.map(person => {
+            //build what appears between
+            this.setState({
+              name: person.name,
+              age: person.age,
+              gender: person.gender,
+            });
+
+        })
+        
+      console.log(data);
+    } catch (e) {
+        console.error(e);
+        console.log(this.state.name)
+      this.setState({
+        name: "",
+        age: "",
+        gender: "",
+        errPing: "Not Found",
+      });
     }
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Search for a Person</h1>
+            <input
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Find your person"/>
+        <button onClick={this.handleClick}>Submit</button>
+        {this.state.name ? (
+          <>
+            <div> {this.state.name}</div>
+            <div>Age:{this.state.age}</div>
+            <div>Age:{this.state.age}</div>
+          </>
+        ) : null}
+      </div>
+    );
+  }
 }
