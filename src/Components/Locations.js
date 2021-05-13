@@ -47,7 +47,7 @@ export default class Locations extends Component {
         <button onClick={this.handleClick}>
           {showLocations ? "Hide Locations" : "Show Locations"}
         </button>
-        <ul>{showLocations ? listItems : null}</ul>
+        <ul className="list">{showLocations ? listItems : null}</ul>
       </div>
     );
   }

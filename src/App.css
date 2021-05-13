@@ -1,3 +1,61 @@
 .app {
   text-align: center;
 }
+
+body {
+  background: blanchedalmond;
+}
+
+.nav {
+  background: rgb(74, 238, 189);
+  height: 120px;
+  box-shadow: 1px 1px 6px 1px rgb(61, 59, 59);
+}
+
+h1 {
+  color: rgb(38, 38, 156);
+  font-weight: 400;
+  font-size: 70px;
+  font-family: cursive;
+  text-shadow: 2px 2px rgb(61, 59, 59);
+}
+
+.list {
+  list-style-type: circle;
+  margin-right: 70px;
+  line-height: 1.5;
+}
+
+li {
+  list-style-position: inside;
+  font-family: cursive;
+  font-size: 20px;
+}
+
+button {
+  background-color: aquamarine;
+  font-family: cursive;
+  border-color: blue;
+  border-radius: 5px;
+  color: rgb(38, 38, 156);
+  margin: 3px;
+}
+
+input {
+  background-color: aquamarine;
+  color: rgb(38, 38, 156);
+  border-color: blue;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: rgb(38, 38, 156);
+  font-family: cursive;
+}
+
+select {
+  background-color: aquamarine;
+  border-radius: 5px;
+  font-family: cursive;
+  color: rgb(38, 38, 156);
+}
