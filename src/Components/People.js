@@ -27,13 +27,14 @@ export class People extends Component {
     try {
       const { data } = await axios.get(
         "https://ghibliapi.herokuapp.com/people"
-      );
-      console.log(data)
+      ); 
       this.setState({
         people: data,
       });
     } catch {
-      console.log("error");
+      this.setState({
+          error: true
+      });
     }
   };
 
@@ -42,8 +43,6 @@ export class People extends Component {
     const { people, input } = this.state;
     const person = people.filter(person => person.name === input);
 
-    console.log(people)
-    console.log(person)
     if (person[0]) {
       this.setState({
         selectedname: person[0].name,
