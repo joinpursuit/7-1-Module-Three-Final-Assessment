@@ -30,7 +30,10 @@ class Locations extends Component {
 
     render() {
         const { locations, displayList } = this.state;
-        const locate = locations.map((location, i) => <li key={i}>Name: {location.name} Climate: {location.climate} Terrain: {location.terrain}</li>)
+        const locate = locations.map((location, i) => <li key={i}>
+            Name: {location.name}
+            Climate: {location.climate}
+            Terrain: {location.terrain}</li>)
 
 
         return (

@@ -13,6 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/">
         <h1>Welcome to GhibliApp</h1>
+        <img src="https://external-preview.redd.it/n2RRm7esDB2gw9FhkbDABc3_slr7wPRpnlR9OsUPZfg.jpg?auto=webp&s=dafa8cacfa4c128c4e5e885e1a0349360fb2552e" />
         </Route>
 
         <Route path="/movies" component={Movies} />
