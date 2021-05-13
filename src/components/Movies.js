@@ -6,46 +6,56 @@ export default class Movies extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: "",
       isError: false,
-      movieInfo: {},
+      title: "",
+      release: "",
+      description: "",
     };
   }
 
   getMovies = async () => {
     try {
-    const { data } = await axios.get("https://ghibliapi.herokuapp.com/films");
-    this.setState({
-      movies: data,
-      isError: false,
-    });
-  } catch {
+      const { data } = await axios.get("https://ghibliapi.herokuapp.com/films");
       this.setState({
-          isError: true,
-      })
-  }
-  }
+        movies: data,
+        isError: false,
+      });
+    } catch {
+      this.setState({
+        isError: true,
+      });
+    }
+  };
 
   componentDidMount() {
     this.getMovies();
   }
 
-  handleChange = async (e) => {
-    this.setState({
-      selectedMovie: e.target.value
-    });
-    const { data } = await axios.get(
-      `https://ghibliapi.herokuapp.com/films/${e.target.value}/`
-    );
-    this.setState({
-      movieInfo: data,
-    });
-    console.log(data)
+  handleChange = (e) => {
+    const { value } = e.target;
+    const { movies } = this.state;
 
+    if (value) {
+      let movie = movies.filter((movie) => movie.id === value)
+      console.log(movies)
+      this.setState({
+        title: movie[0].title,
+        release: movie[0].release_date,
+        description: movie[0].description,
+      });
+    } else {
+      this.setState({
+        title: "",
+        release: "",
+        description: "",
+      });
+    }
   };
 
+  movieOutput;
+
   render() {
-    const { movies, selectedMovie, movieInfo } = this.state;
+    const { movies, title, release, description } = this.state;
     const options = movies.map((movie) => (
       <option value={movie.title} key={movie.id}>
         {movie.title}
@@ -55,12 +65,17 @@ export default class Movies extends Component {
     return (
       <div>
         <h1>Select a Movie</h1>
-        <select onChange={this.handleChange} value={selectedMovie}>
+        <select onChange={this.handleChange}>
           <option></option>
           {options}
         </select>
-        <h1>{selectedMovie}</h1>
-        <h2>{}</h2>
+        {title ? (
+          <div>
+            <h1>{title}</h1>
+            <h2>{release}</h2>
+            <p>{description}</p>
+          </div>
+        ) : null}
       </div>
     );
   }
