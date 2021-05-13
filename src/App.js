@@ -6,8 +6,12 @@ import Locations from "./Components/Locations";
 import {Switch, Route} from "react-router-dom";
 
 function App() {
+  const homeStyle = {
+    backgroundColor: "#FF7F51",
+    height:"1000px"
+}
   return (
-    <div className="App">
+    <div className="App" style={homeStyle}>
       <NavBar />
       <main>
         <Switch>

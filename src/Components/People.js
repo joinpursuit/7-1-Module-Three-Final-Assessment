@@ -53,8 +53,14 @@ class People extends Component {
 
   render() {
     const { searchPerson, currentPerson, isError } = this.state;
+
+    const peopleStyle = {
+        backgroundColor: "#F5F4DC",
+        height:"1000px"
+    }
+
     return (
-      <div>
+      <div style={peopleStyle}>
         <h1>Search for a Person</h1>
         <form onSubmit={this.handleSubmit}>
           <input

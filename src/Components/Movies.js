@@ -58,9 +58,14 @@ class Movies extends Component {
       );
     });
 
+    const moviesStyle = {
+        backgroundColor: "#E6E6FA",
+        height:"1000px"
+    }
+
 
     return (
-      <div>
+      <div style={moviesStyle}>
         <h1>Select a Movie</h1>
         <select onChange={this.handleChange} value={selectedValue}>
           <option></option>

@@ -8,9 +8,16 @@ const NavBar = () => {
         width:"50px"
     }
     const imageSource = "https://previews.123rf.com/images/damedeeso/damedeeso1207/damedeeso120700004/14355372-dog-watching-a-movie-with-popcorn-and-coke.jpg"
+
+    const navStyle = {
+        display:"flex",
+        justifyContent: "space-around",
+        height:"55px",
+        backgroundColor:"#7FFED3"
+    }
   return (
     <div>
-      <nav>
+      <nav style={navStyle}>
         <Link to="/">
           <img
             src={imageSource}
