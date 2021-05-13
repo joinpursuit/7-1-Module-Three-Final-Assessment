@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <div>
+        <div className="nav-bar">
             <nav>
                 <Link to="/">
-                    <img src="https://www.kindpng.com/picc/m/187-1876040_popcorn-and-movie-reel-transparent-background-hd-png.png"
+                    <img src="https://toppng.com/uploads/preview/film-cinema-illustration-popcorn-and-projector-movie-11562911119ni7qtdkdp4.png"
                     alt="movie-img"
                     style={{ height: "50px", width: "50px" }}
                     />

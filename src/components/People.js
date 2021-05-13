@@ -24,10 +24,10 @@ class People extends Component {
 
         try {
             const { data } = await axios.get(
-                `https://ghibliapi.herokuapp.com/people/${searchPeople}`
+                `https://ghibliapi.herokuapp.com/people/`
             );
 
-            const person = data.find((elem) => elem.name === searchPeople);
+            const person = data.find((elem) => elem.name == searchPeople);
 
             if (person === undefined) {
                 this.setState({
@@ -76,7 +76,7 @@ class People extends Component {
                 ) : personName ?
                 (<div>
                 <h3>Name: {currentPerson.name}</h3>
-                <p>Age: {currentPerson.Age}</p>
+                <p>Age: {currentPerson.age}</p>
                 <p>Gender: {currentPerson.gender}</p>
             </div>) : null
             }
