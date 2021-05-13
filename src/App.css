@@ -29,5 +29,13 @@ html {
 }
 
 ul {
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+  justify-content: center;
+  margin: 10px;
   list-style-type: upper-roman;
+}
+ul li {
+  margin: 10px;
+  padding: 25px;
 }

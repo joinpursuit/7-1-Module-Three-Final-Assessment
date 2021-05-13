@@ -7,9 +7,7 @@ export class People extends Component {
 
         this.state = {
             input: "",
-            peopleName: "",
-            peopleAge: "",
-            peopleGender: "",
+            people: [],
             isError: false,
         }
     }
@@ -23,22 +21,30 @@ export class People extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         // console.log("You click submit!")
-        const {data} = await axios.get(`https://ghibliapi.herokuapp.com/people/`)
-        console.log(data)
-        const id = data.filter((id) => id.name ===this.state.input)
-        console.log(id)
-        this.setState({
-            // input: "",
-            // peopleName: data.name,
-            // peopleAge: data.age,
-            // peopleGender: data.gender,
-            // isError: false,
-        })
 
+        try {
+            const {data} = await axios.get(`https://ghibliapi.herokuapp.com/people`)
+            console.log(data)
+            this.setState ({
+                people: data,
+                isError: false,
+            })
+        } catch (error) {
+            this.setState({
+                isError: true,
+            })
+        }
     }
 
     render() {
-        const {peopleName, peopleGender, peopleAge} = this.state
+        const {people, input, isError} = this.state
+        const person = people.map((p,i) => 
+        <div key={i} value={p.id}>
+            Name: {p.name} <br></br>
+            Age: {p.age} <br></br>
+            Gender: {p.gender}
+        </div>)
+
         return (
             <div>
                 <h1>Search for a Person</h1>
@@ -51,13 +57,16 @@ export class People extends Component {
                     <button>Submit</button>
                 </form>
 
-                {peopleName ? (
-                    <div>
-                        <h2>Name: {peopleName}</h2>
-                        <h2>Age: {peopleAge}</h2>
-                        <h2>Gender: {peopleGender}</h2>
-                    </div>
-                ) : null}
+                {person ? person :null }
+                {isError ? <p>Not Found</p>: null}
+                {/* <div>
+                    {input ? {person} : null}
+                </div> */}
+                {/* <div>
+                    {person === input ? person : <p>Not Found</p>}
+                </div> */}
+                
+
             </div>
         )
     }

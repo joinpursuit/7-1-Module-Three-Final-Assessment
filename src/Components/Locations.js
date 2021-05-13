@@ -33,7 +33,7 @@ export class Locations extends Component {
             Terrain: {location.terrain}
         </li>)
         return (
-            <div>
+            <div className="Locations">
                 <h1>List of Locations</h1>
                 <button onClick={this.handleClick}>{!show ? "Show Locations" : "Hide Locations"}</button>
 
