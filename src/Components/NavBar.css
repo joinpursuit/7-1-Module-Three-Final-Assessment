@@ -11,3 +11,8 @@ nav {
   text-decoration: none;
   color: rgb(197, 21, 153);
 }
+
+img {
+  height: 50px;
+  width: 50px;
+}
