@@ -28,8 +28,8 @@ export default class People extends Component {
                          : person.name === "default" ? null
                          : (<>
                             <h2>name: {person.name}</h2>
-                            <h2>Age: {person.age}</h2>
-                            <h2>Gender: {person.gender}</h2>
+                            <h3>Age: {person.age}</h3>
+                            <h3>Gender: {person.gender}</h3>
                             </>)
         return (
             <div className="people">
