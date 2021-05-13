@@ -1,0 +1,5 @@
+.locations {
+  height: 100%;
+  background-color: rgb(146, 193, 82);
+  overflow-y: auto;
+}

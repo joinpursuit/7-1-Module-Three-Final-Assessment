@@ -1,0 +1,5 @@
+.people {
+  height: 100%;
+  background-color: rgb(93, 215, 158);
+  overflow-y: auto;
+}

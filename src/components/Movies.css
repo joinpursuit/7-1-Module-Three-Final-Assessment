@@ -1,0 +1,5 @@
+.movies {
+  height: 100%;
+  background-color: rgb(109, 178, 232);
+  overflow-y: auto;
+}
