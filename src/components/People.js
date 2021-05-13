@@ -27,7 +27,7 @@ export default class People extends Component {
         `https://ghibliapi.herokuapp.com/people`
       );
       const uuid = data.find(
-        (person) => person.name === String(this.state.input)
+        (person) => person.name === this.state.input
       );
         this.setState({
             name: uuid.name,
@@ -36,7 +36,7 @@ export default class People extends Component {
         })
     } catch (e) {
       console.error(e);
-      console.log(this.state.name);
+      
       this.setState({
         name: "",
         age: "",
@@ -62,7 +62,7 @@ export default class People extends Component {
             <div>Age:{this.state.age}</div>
             <div>Gender:{this.state.gender}</div>
           </>
-        ) : null}
+        ) : <><br/><div>Not Found</div></>}
       </div>
     );
   }
