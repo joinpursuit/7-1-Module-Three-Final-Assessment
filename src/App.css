@@ -1,3 +1,20 @@
 .app {
   text-align: center;
 }
+
+html {
+  background-color: rgb(93, 168, 249);
+}
+
+html, body, #root {
+  margin: 0px;
+  height: 100%;
+}
+
+h1 {
+  font-family: "Goblin One", cursive;
+}
+
+input, p, h2, li {
+  font-family: "Raleway", sans-serif;
+}
