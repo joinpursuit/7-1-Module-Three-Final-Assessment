@@ -12,7 +12,8 @@ export default class Movies extends Component {
       <div>
         <h1>Select a Movie</h1>
         <select name="" id="">
-          <option value="">--</option>
+                <option value="">--</option>
+                {/* logic here */}
         </select>
       </div>
     );

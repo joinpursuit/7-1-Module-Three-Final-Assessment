@@ -20,45 +20,20 @@ export default class People extends Component {
     });
     console.log(this.state.input);
   };
-  //     async componentDidMount() {
-  //         try {
-  //             const { data } = await axios.get(
-  //                 `https://ghibliapi.herokuapp.com/people`
-  //             );
-  //             const {name, age, gender} = data.map(person => {
-  //                 console.log(person.name)
-  //             })
-  //         }
-  //         catch(e) {
-  //             console.error(e)
-  //         }
-  //   }
+  
   handleClick = async () => {
-    // try {
-    //   const { data } = await axios.get(
-    //     `https://ghibliapi.herokuapp.com/people`
-    //   );
-    //     data.map(person => {
-    //         //build what appears between
-    //         this.setState({
-    //           name: person.name,
-    //           age: person.age,
-    //           gender: person.gender,
-    //         });
-
-    //     })
     try {
       const { data } = await axios.get(
         `https://ghibliapi.herokuapp.com/people`
       );
-      const id = data.map((person) => {
-          return person.id
-          
-      });
-        console.log(id)
-        
-        
-      
+      const uuid = data.find(
+        (person) => person.name === String(this.state.input)
+      );
+        this.setState({
+            name: uuid.name,
+            age: uuid.age,
+            gender: uuid.gender
+        })
     } catch (e) {
       console.error(e);
       console.log(this.state.name);
