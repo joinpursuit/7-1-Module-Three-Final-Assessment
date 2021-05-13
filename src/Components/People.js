@@ -8,8 +8,24 @@ export class People extends Component {
         this.state = {
             input: "",
             people: [],
+            name: "",
+            age: "",
+            gender: "",
             isError: false,
         }
+    }
+
+    componentDidMount () {
+        this.getPeople()
+    }
+
+    getPeople = async () => {
+        const {data} = await axios.get(`https://ghibliapi.herokuapp.com/people`)
+        // console.log(data)
+
+        this.setState ({
+            people: data,
+        })
     }
 
     handleInput = (event) => {
@@ -20,31 +36,31 @@ export class People extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault()
-        // console.log("You click submit!")
 
-        try {
-            const {data} = await axios.get(`https://ghibliapi.herokuapp.com/people`)
-            console.log(data)
-            this.setState ({
-                people: data,
+        const {input,people} = this.state
+        const person = people.filter((p) => p.name === input)
+        // console.log(person[0])
+
+        if(person[0]) {
+            this.setState({
+                name: person[0].name,
+                age: person[0].age,
+                gender: person[0].gender,
                 isError: false,
             })
-        } catch (error) {
-            this.setState({
-                isError: true,
+        } else {
+            this.setState ({
+                name: "",
+                age: "",
+                gender: "",
+                isError: !this.state.isError,
             })
         }
     }
 
     render() {
-        const {people, input, isError} = this.state
-        const person = people.map((p,i) => 
-        <div key={i} value={p.id}>
-            Name: {p.name} <br></br>
-            Age: {p.age} <br></br>
-            Gender: {p.gender}
-        </div>)
-
+        const {people, input, name, age, gender, isError} = this.state
+    
         return (
             <div>
                 <h1>Search for a Person</h1>
@@ -57,15 +73,15 @@ export class People extends Component {
                     <button>Submit</button>
                 </form>
 
-                {person ? person :null }
+                {name ? (
+                <div>
+                    <h2>Name: {name}</h2>
+                    <h2>Age: {age}</h2>
+                    <h2>Gender: {gender}</h2>
+                </div>)
+                : null }
+
                 {isError ? <p>Not Found</p>: null}
-                {/* <div>
-                    {input ? {person} : null}
-                </div> */}
-                {/* <div>
-                    {person === input ? person : <p>Not Found</p>}
-                </div> */}
-                
 
             </div>
         )
