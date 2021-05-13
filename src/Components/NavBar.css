@@ -1,7 +1,7 @@
 nav {
   height: 70px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
   background-color: aquamarine;
 }
@@ -10,6 +10,10 @@ nav {
   font-size: 24px;
   text-decoration: none;
   color: rgb(197, 21, 153);
+}
+.navlink:hover {
+  font-size: 30px;
+  background-color: lavender;
 }
 
 img {

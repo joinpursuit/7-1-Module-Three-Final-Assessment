@@ -62,7 +62,7 @@ class Movies extends Component {
                 <section>
                     <h1>Title: {movie.title}</h1>
                     <h3>Release Date: {movie.release_date}</h3>
-                    <p>Description: {movie.description}</p>
+                    <h3>Description: {movie.description}</h3>
                 </section>
             </div>
         )

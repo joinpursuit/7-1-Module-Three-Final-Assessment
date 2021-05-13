@@ -60,7 +60,7 @@ class People extends Component {
                     <button type='submit'>Submit</button>
                 </form>
                 {personInfo ? (<div>
-                    <h1>Name: {currentPerson.name}</h1>
+                    <h2>Name: {currentPerson.name}</h2>
                     <h2>Age: {currentPerson.age}</h2>
                     <h2>Gender: {currentPerson.gender}</h2>
                 </div>) : null}

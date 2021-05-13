@@ -10,9 +10,9 @@ const NavBar = () => {
                     alt='Cinema Logo'
                 />
             </NavLink>
-            <NavLink to='/movies'>Movies</NavLink> {' '}
-            <NavLink to='/people'>People</NavLink> {' '}
-            <NavLink to='locations'>Locations</NavLink>
+            <NavLink to='/movies' className='navlink'>Movies</NavLink>
+            <NavLink to='/people' className='navlink'>People</NavLink>
+            <NavLink to='locations' className='navlink'>Locations</NavLink>
         </nav>
     )
 }
