@@ -42,7 +42,12 @@ componentDidMount() {
             </option>
         })
         return (
-            <div>
+            <div  style={{
+                backgroundColor: 'violet',
+                width: 'auto',
+                height: '500px'
+              }}
+              >
                 <h1>Select a Movie</h1>
                 <select
                 onChange={this.handleChange}

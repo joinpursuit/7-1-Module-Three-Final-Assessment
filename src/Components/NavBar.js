@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Navbar.css'
 
 const NavBar = () => {
         return (
             <div>
-                <nav>
+                <nav className="nav">
                     <Link to="/">
                         <img src="https://wallpaperaccess.com/full/42622.jpg"
                                 alt="studio ghibli pic"

@@ -8,11 +8,11 @@ import { Switch, Route } from 'react-router-dom'
 function App() {
   return (
     <div className="app">
-      <NavBar/>
+      <NavBar className="navbar"/>
       <main>
         <Switch>
         <Route exact path ="/"><h1>Welcome to GhibliApp!</h1></Route>
-        <Route path ='/movies' component={Movies}></Route>
+        <Route path ='/movies' component={Movies} className="movies"></Route>
         <Route path= '/people' component={People}></Route>
         <Route path = '/locations' component={Locations}></Route>
         </Switch>

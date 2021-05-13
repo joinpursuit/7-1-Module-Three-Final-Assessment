@@ -1,3 +1,8 @@
 .app {
   text-align: center;
+  background-color: rgb(40, 240, 40);
+  height: 1000px;
+}
+h1{
+  font-family: Chalkduster, fantasy ;
 }

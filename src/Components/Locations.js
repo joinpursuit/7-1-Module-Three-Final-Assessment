@@ -35,7 +35,12 @@ handleClick = () => {
         {loc.climate} </li>);
 
         return (
-            <div>
+            <div  style={{
+                backgroundColor: 'grey',
+                width: 'auto',
+                height: '500px'
+              }}
+            >
                 <h1>List of Locations</h1>
                 <button onClick={this.handleClick}>
           {showList ? "Hide Locations" : "Show Locations"}

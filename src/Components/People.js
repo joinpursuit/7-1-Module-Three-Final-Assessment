@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
 export class People extends Component {
 constructor() {
     super();
@@ -46,7 +45,12 @@ handleSubmit= async (e) => {
     render() {
         const { searchPerson, currPerson, currName, isError } = this.state
         return (
-            <div>
+            <div style={{
+                backgroundColor: 'rgb(128, 59, 59)',
+                width: 'auto',
+                height: '500px'
+              }}
+            >
                 <h1>Search for a Person</h1>
                 <form onSubmit={this.handleSubmit}>
                     <input 
