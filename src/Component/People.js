@@ -12,6 +12,7 @@ class People extends React.Component {
             personGender:'',
             personId: '',
             isError: false,
+            dispose:''
         }
     }
 
@@ -21,9 +22,9 @@ class People extends React.Component {
           const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/`)
         this.setState({people:data})
         data.map((p)=>{
-            if(p.name.includes(this.state.search)){
+            if(p.name === this.state.search){
                 this.setState({personId:p.id
-                })} else {this.setState({personId: "", isError:true})}
+                })} else {this.setState({dispose:p.id})}
             })
         const res = await axios.get(`https://ghibliapi.herokuapp.com/people/${this.state.personId}`)
         console.log(res)
