@@ -1,0 +1,15 @@
+
+.NavBar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(27, 173, 230);
+    height: 200px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 30px;
+    font-family: monospace;
+    color: white;
+}
