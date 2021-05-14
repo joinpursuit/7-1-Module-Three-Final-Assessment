@@ -39,11 +39,15 @@ class Locations extends Component {
         return (
             <div className="locations">
                 <h1>List of Locations</h1>
-                <button onClick={this.handleClick}>
+                <div class="left"></div>
+                <button className="loc-btn" onClick={this.handleClick}>
                     {displayList ? "Hide Locations" : "Show Locations"}
+                    <div class="right"></div>
                 </button>
 
-                <ul>{displayList ? locate : null}</ul>
+                <ul>{displayList ? locate : null}
+
+                </ul>
             </div>
         )
     }

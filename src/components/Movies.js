@@ -47,7 +47,7 @@ class Movies extends Component {
         return (
             <div className="movies">
                 <h1>Select a Movie</h1>
-                <select onChange={this.handleChange} value={selectedValue}>
+                <select className="select" onChange={this.handleChange} value={selectedValue}>
                     <option></option>
                     {options}
                 </select>

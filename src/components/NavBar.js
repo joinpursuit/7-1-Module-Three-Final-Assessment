@@ -10,9 +10,29 @@ const NavBar = () => {
                     style={{ height: "50px", width: "50px" }}
                     />
                 </Link>{" "}
-                <Link to="/movies">Movies</Link>{" "}
-                <Link to="/people">People</Link>{" "}
-                <Link to="/locations">Locations</Link>
+
+                <Link to="/movies">
+                    <div
+                    className="box_item"
+                    data-hover="えいが">
+                    Movies
+                    </div>
+                    </Link>{" "}
+
+                <Link to="/people">
+                    <div className="box_item"
+                    data-hover="人々">
+                    People
+                    </div>
+                    </Link>{" "}
+
+
+                <Link to="/locations">
+                    <div className="box_item"
+                    data-hover="ロケーション">
+                    Locations
+                    </div>
+                    </Link>
             </nav>
         </div>
     )

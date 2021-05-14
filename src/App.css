@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+  --text-color: hsla(210, 50%, 85%, 1);
+  --shadow-color: hsla(210, 40%, 52%, .4);
+  --btn-color: hsl(210, 80%, 42%);
+  --bg-color: #141218;
+}
+
 body {
   background: black;
 }
@@ -18,7 +27,7 @@ body {
 
 
 .nav-bar {
-  background-color: rgb(42, 72, 114);
+  background-color: #4e5da1;
 }
 
 .nav-bar a {
@@ -30,13 +39,29 @@ body {
   color: snow;
 }
 
-.nav-bar a:hover {
-  color: rgb(228, 133, 130);
+.box_item:hover {
+  font-size: 0;
+}
+
+.box_item:hover:after {
+  content: attr(data-hover);
+  font-size: 20px;
+  line-height:28px;
+  font-family: 'Inter', sans-serif;
+  color:rgb(10, 8, 8);
+  font-weight: 600;
+
 }
 
 .movies {
   color: whitesmoke;
 }
+
+.movies .select {
+  font-family: Ghibli;
+  color: #4e5da1;
+}
+
 
 .movies h2 {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -53,6 +78,21 @@ body {
 .locations {
   color: whitesmoke;
 }
+
+.locations .loc-btn {
+  font-family: Ghibli;
+  height: 50px;
+  border: 1px solid whitesmoke;
+  border-radius: 3%;
+  background-color: black;
+  color: #4e5da1;
+}
+
+.locations .loc-btn:hover {
+  background-color: #4e5da1;
+  color: black;
+}
+
 
 .people {
   color: whitesmoke;
