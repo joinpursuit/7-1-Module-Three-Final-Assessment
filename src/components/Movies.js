@@ -7,7 +7,8 @@ export default class Movies extends Component {
         super()
         this.state = {
             movies: [],
-            movie: {}
+            movie: {},
+            currentIndex: ''
         }
     }
 
@@ -23,18 +24,18 @@ export default class Movies extends Component {
         })
     }
     handleChange = (e) => { // Why can't I set state.movie to the movie object stored in select options?
-        const value = e.target.value
-        // const movies = movies
-        console.log(e.target.value)
+        const movies = this.state.movies
+        const currentMovie = movies[e.target.value]
         this.setState({
-            movie: value
+            movie: currentMovie
         })
+        console.log(currentMovie)
     }
 
     render() {
-        const { value, movies } = this.state
+        const { value, movies, movie } = this.state
         const options = movies.map((movie, i) => {
-            return <option key={i} value={movie} >{movie.title}</option>
+            return <option key={i} value={i} >{movie.title}</option>
         })
         
 
@@ -43,8 +44,11 @@ export default class Movies extends Component {
                 <h1>Select a Movie</h1>
                 <select onChange={this.handleChange}>
                     <option value=""></option>
-                    {options}
+                    {options}   
                 </select>
+                {movie.title ? <h3>{movie.title}</h3> : null}
+                {movie.release_date ? <h3>{movie.release_date}</h3> : null}
+                {movie.description ? <p>{movie.description}</p> : null}
 
             </div>
         )
