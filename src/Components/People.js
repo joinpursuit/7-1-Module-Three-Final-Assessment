@@ -4,8 +4,7 @@ import axios from 'axios';
 class People extends Component {
     state = {
         searchPerson: '',
-        currentPerson: {},
-        personInfo: '',
+        person: {},
         showError: false
     }
 
@@ -18,40 +17,27 @@ class People extends Component {
     handleSubmit = async (e) => {
         e.preventDefault()
         const { searchPerson } = this.state
-        try {
-            const { data } = await axios.get(
-                'https://ghibliapi.herokuapp.com/people'
-            )
-            console.log(data)
-            const findPerson = data.find((person) => person.name === searchPerson)
-            if (findPerson === undefined) {
-                this.setState({
-                    searchPerson: '',
-                    currentPerson: {},
-                    personInfo: '',
-                    showError: true
-                })
-            } else {
-                this.setState({
-                    searchPerson: '',
-                    currentPerson: findPerson,
-                    personInfo: findPerson.name,
-                    showError: false
-                })
-            }
+        const { data } = await axios.get(
+            `https://ghibliapi.herokuapp.com/people?name=${searchPerson}`
+        )
+        console.log(data)
+        this.setState({
+            searchPerson: '',
+            person: data,
+            showError: false
+        })
 
-        } catch (error) {
+        if (data.length === 0) {
             this.setState({
                 searchPerson: '',
-                currentPerson: {},
-                personInfo: '',
+                person: {},
                 showError: true
             })
         }
     }
 
     render() {
-        const { searchPerson, currentPerson, personInfo, showError } = this.state
+        const { searchPerson, person, showError } = this.state
         return (
             <div>
                 <h1>Search for a Person</h1>
@@ -59,12 +45,13 @@ class People extends Component {
                     <input onChange={this.handleChange} value={searchPerson} type='text' placeholder='Find Your Person' />
                     <button type='submit'>Submit</button>
                 </form>
-                {personInfo ? (<div>
-                    <h2>Name: {currentPerson.name}</h2>
-                    <h2>Age: {currentPerson.age}</h2>
-                    <h2>Gender: {currentPerson.gender}</h2>
-                </div>) : null}
-                {showError ? <h1>Not Found</h1> : null}
+                {showError ? (
+                    <h1>Not Found</h1>) : person[0] ? (
+                        <div>
+                            <h2>Name: {person[0].name}</h2>
+                            <h2>Age: {person[0].age}</h2>
+                            <h2>Gender: {person[0].gender}</h2>
+                        </div>) : null}
             </div>
         )
     }
