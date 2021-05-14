@@ -8,9 +8,7 @@ export default class Movies extends Component {
         this.state = { movieList: [], selected: "" };
     }
     selectChange = (e) => {
-        const { value } = e.target;
-        if (!value) return this.setState({ selected: "" });
-        this.setState({ selected: value });
+        this.setState({ selected: e.target.value });
     }
     async componentDidMount() {
         const movieList = await GhibliAPI.getFilms();
