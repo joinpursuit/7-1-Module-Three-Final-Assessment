@@ -14,12 +14,15 @@ export class People extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault()
+        
 
         try {
-            const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/${this.state.input}`)
-            this.setState({ input: "", person: data, error: false })
+            const { data } = await axios.get(`https://ghibliapi.herokuapp.com/people/?q=${this.state.input}`)
+            
+            this.setState({ input: "", person: data[0], error: false })
+        
         } catch (e) {
-            this.setState({ input: "", person: {}, error: true })
+            this.setState({ input: "", person: {}, error: true })   
         }
 
     }
@@ -30,7 +33,7 @@ export class People extends Component {
 
 
     render() {
-        const { input, error } = this.state
+        const { input, error, person } = this.state
         return (
             <div>
                 <h1>Search for a Person</h1>
@@ -38,8 +41,14 @@ export class People extends Component {
                     <input onChange={this.handleChange} value={input} type="text" placeholder="Find Your Person"></input>
                     <button>Submit</button>
                 </form>
-                
-                {error ? <p>Not Found</p> : null}
+                {
+                    error || person === undefined ? <p>Not Found</p> : 
+                    (<div>
+                        <p>{person.name}</p>
+                        <p>{person.age}</p>
+                        <p>{person.gender}</p>
+                    </div>)
+                }
             </div>
         )
     }
