@@ -12,37 +12,40 @@ export default class Movies extends Component {
         }
     }
 
-    onChange = async() => {
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  filmGrab = async () => {
         try {
             const { data } = await axios.get('https://ghibliapi.herokuapp.com/films')
-            console.log(data)
             this.setState({
-                menu: data.title
+                menu: data
             })
+          console.log(data)
         }
         catch (e) {
             console.error(e)
         }
     }
     
-    
-    
     componentDidMount() {
-        this.onChange()
+        this.filmGrab()
     }
   render() {
+    const { menu } = this.state
+    const menuPop = menu.map((flick, i) => <option key={i} value={flick.id}>{flick.title }</option>)
     return (
       <div>
         <h1>Select a Movie</h1>
         <select name="" id="">
-                <option value="">--</option>
-                {this.state.name ? (
-          <>
-            <div> Title:{this.state.title}</div>
-            <div>Release Date:{this.state.date}</div>
-            <div>Description:{this.state.description}</div>
-          </>
-        ) : <><br/><div>Not Found</div></>}
+          <option value=""></option>
+          {menuPop}
         </select>
       </div>
     );
