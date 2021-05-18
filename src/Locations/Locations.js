@@ -29,14 +29,15 @@ export default class Locations extends Component {
    }
     render() {
         const {locations, showLocal}= this.state
-        const places = locations.map((loc, i )=> 
-        <li key={i}> Name: {loc.name} Climate: {loc.climate}  Terrain: {loc.terrain}</li>)
+        const places = locations.map((loc )=> 
+        <li key={loc.id}> Name: {loc.name} Climate: {loc.climate === 'TODO' ? 'Undefined' : loc.climate}  Terrain: {loc.terrain === 'TODO' ? 'Undefined' :loc.terrain}</li>)
         return (
             <div className="locations">
                 <h1>List of Locations</h1>
                 <button onClick={this.handlclick}>{showLocal ? 'Hide' : 'Show'} Locations</button>
                 
-                <ul>{showLocal ? places : null}</ul>
+                {/* <ul>{showLocal ? places : null}</ul> */}
+                <ul>{showLocal && places }</ul>
             </div>
         )
     }

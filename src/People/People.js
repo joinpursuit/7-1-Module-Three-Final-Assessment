@@ -26,7 +26,7 @@ export default class People extends Component {
 
         try{
             const {data} = await axios.get('https://ghibliapi.herokuapp.com/people/')
-            const person = data.find((eve)=> eve.name == searchperson)
+            const person = data.find((eve)=> eve.name === searchperson)
             if(person === undefined){
                this.setState({
                 searchperson: '',

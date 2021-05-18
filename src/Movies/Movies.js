@@ -35,9 +35,9 @@ export default class Movies extends Component {
     }
     render() {
         const {listMovies, search, movies}= this.state
-        const list = listMovies.map((movie, i)=>{
+        const list = listMovies.map((movie)=>{
             return (
-            <option key={i} value={movie.id}>
+            <option key={movie.id} value={movie.id}>
                 {movie.title}
             </option>
         )} )
