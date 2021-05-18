@@ -73,3 +73,8 @@ select {
   font-family: cursive;
   color: rgb(38, 38, 156);
 }
+
+.image-logo {
+  border: none;
+  width: 1000px;
+}
