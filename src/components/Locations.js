@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import axios from 'axios'
 
-export class Locations extends Component {
+export class Locations extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -15,13 +15,10 @@ export class Locations extends Component {
   }
 
   loadLocations = async () => {
-    const locationList = await axios.get(
+    const { data } = await axios.get(
       'https://ghibliapi.herokuapp.com/locations'
     )
-    const locations = locationList.data.map((place, i) => {
-      return <li key={i}>{place.name}</li>
-    })
-    this.setState({ locations })
+    this.setState({ locations : data })
   }
 
   handleClick = () => {
@@ -32,15 +29,18 @@ export class Locations extends Component {
 
   render () {
     const { showLocations, locations } = this.state
+    const listLocations = locations.map(place => {
+      return <li key={place.id}>{place.name}</li>
+    })
     return (
       <div className='centered'>
         <span>List of Locations</span>
         <br />
         <button onClick={this.handleClick}>
-          {showLocations ? 'Hide Locations' : 'Show Locations'}
+          {showLocations ? 'Hide' : 'Show'} Locations
         </button>
         <br />
-        <ul>{showLocations ? locations : ''}</ul>
+        <ul>{showLocations && listLocations}</ul>
       </div>
     )
   }

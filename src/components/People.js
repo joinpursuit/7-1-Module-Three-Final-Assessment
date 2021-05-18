@@ -10,11 +10,10 @@ export class People extends React.Component {
             person: '',
             personInfo:[],
             loadData: false
-
         }
     }
 
-    personName = (e) =>{
+    handleNameInput = (e) =>{
         this.setState({person: e.target.value})
     }
 
@@ -44,7 +43,12 @@ export class People extends React.Component {
             <div className = 'centered'>
                 <span>Search for a Person</span>
                 <br />
-                <input type='text' placeholder='Find Your Person' onChange={this.personName} value={this.state.person}/>
+                <input 
+                        type='text' 
+                        placeholder='Find Your Person' 
+                        onChange={this.handleNameInput} 
+                        value={this.state.person}
+                />
                 <br />
                 <button onClick={this.handleSearch}>Submit</button>
                 <br />

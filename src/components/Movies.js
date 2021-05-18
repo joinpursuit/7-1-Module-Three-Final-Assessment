@@ -7,6 +7,7 @@ export class Movies extends React.Component {
   constructor () {
     super()
     this.state = {
+      selectedValue:"",
       options: [],
       movie :{},
       showCard: false
@@ -19,8 +20,11 @@ export class Movies extends React.Component {
 
   loadMovies = async () => {
     const movieList = await axios.get('https://ghibliapi.herokuapp.com/films')
-    const options = movieList.data.map((movie, i) => {
-      return <option key={i} value={movie.id}>{movie.title}</option>
+    const options = movieList.data.map(movie => {
+      return <option 
+                    key={movie.id} 
+                    value={movie.id}>{movie.title}
+            </option>
     })
     this.setState({ options })
   }
@@ -28,29 +32,32 @@ export class Movies extends React.Component {
    loadCard = async(movie) =>{
     const film = await axios.get(`https://ghibliapi.herokuapp.com/films/${movie}`)
     this.setState({
+            selectedValue: movie,
             movie : film.data,
-            showCard: (!movie) ? false : true
+            showCard: !!movie
     })
 
 }
 
   handleChange = (e) =>{
-      e.preventDefault()
-      const movie = e.target.value
-      this.loadCard(movie)
+      this.loadCard(e.target.value)
   }
 
   render () {
-    const {options, movie, showCard } = this.state
+    const {options, movie, showCard, selectedValue } = this.state
 
     return (
       <div className='centered'>
         <div>
           <span>Select a Movie</span>
           <br />
-          <select name='movie-select' id='mvs' onChange={this.handleChange}>
-            <option></option>
-            {options}
+          <select 
+                  name='movie-select' 
+                  id='mvs' 
+                  onChange={this.handleChange} 
+                  value={selectedValue}>
+              <option></option>
+              {options}
           </select>
           <br />
           {movie && <MovieCard movie={movie} showCard={showCard}/>}

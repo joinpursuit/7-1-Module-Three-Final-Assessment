@@ -13,7 +13,6 @@ function MovieCard ({movie, showCard}){
             </div> }
             </>
         )
-  
  }
 
 export default MovieCard
