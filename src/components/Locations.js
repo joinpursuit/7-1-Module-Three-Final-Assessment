@@ -14,6 +14,7 @@ export default class Locations extends Component {
         const locationList = await GhibliAPI.getLocations();
         this.setState({ locationList });
     }
+
     render() {
         const { locationList, showList } = this.state;
         const uList = locationList.map(loc => (
@@ -23,12 +24,13 @@ export default class Locations extends Component {
                 <h3>Terrain: {loc.terrain}</h3>
             </li>
         ));
+
         return (
             <div className="locations">
                 <h1>List of Locations</h1>
                 <button onClick={this.buttonClick}>{showList ? "Hide" : "Show"} Locations</button>
                 <ul className="city-list">
-                    {showList ? uList : null}
+                    {showList && uList}
                 </ul>
             </div>
         )

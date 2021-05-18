@@ -14,10 +14,12 @@ export default class Movies extends Component {
         const movieList = await GhibliAPI.getFilms();
         this.setState({ movieList });
     }
+
     render() {
         const { movieList, selected } = this.state;
-        const optionList = movieList.map((movie, i) => <option key={i} value={i}>{movie.title}</option>);
+        const optionList = movieList.map((movie, i) => <option key={movie.id} value={i}>{movie.title}</option>);
         const movie = movieList[selected]
+
         return (
             <div className="movies">
                 <h1>Select a Movie</h1>
@@ -25,7 +27,8 @@ export default class Movies extends Component {
                     <option defaultValue value="">&nbsp;</option>
                     {optionList}
                 </select>
-                {!movie ? null : (<>
+                {movie && (
+                <>
                     <h2>Title: {movie.title}</h2>
                     <h3>Release Date: {movie.release_date}</h3>
                     <h4>Description: {movie.description}</h4>
