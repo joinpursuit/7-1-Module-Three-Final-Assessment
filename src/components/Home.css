@@ -1,0 +1,5 @@
+.home {
+  height: 100%;
+  background-color: rgb(85, 105, 205);
+  overflow-y: auto;
+}
