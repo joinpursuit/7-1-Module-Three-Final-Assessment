@@ -1,0 +1,17 @@
+.links {
+  display: flex;
+  justify-content: space-around;
+  font-size: 50px;
+  padding-top: 20px;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: rgb(19, 23, 212);
+  text-shadow: 2px 2px #3c3b3f;
+}
+
+img {
+  border: 2px solid blue;
+}
